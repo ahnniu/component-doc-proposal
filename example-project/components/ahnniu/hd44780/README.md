@@ -1,6 +1,9 @@
 
+@if (DOXYGEN_PROJECT)
+@defgroup HD44780
+@endif
 
-## HD44780
+# HD44780 
 
 
 
