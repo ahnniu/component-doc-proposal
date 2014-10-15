@@ -39,6 +39,8 @@
 #ifndef __SDCARD_H__
 #define __SDCARD_H__
 
+#include "sdcard_config.h.example"
+
 //*****************************************************************************
 //
 // If building with a C++ compiler, make all of the definitions in this header
@@ -50,114 +52,20 @@ extern "C"
 {
 #endif
     
-//*****************************************************************************
-//
-//! \addtogroup CoX_Driver_Lib
-//! @{
-//
-//*****************************************************************************
-
-//*****************************************************************************
-//
-//! \addtogroup Memory
-//! @{
-//
-//*****************************************************************************
     
 //*****************************************************************************
 //
-//! \addtogroup Memory_SDCard
+//! \addtogroup SDCard
 //! @{
 //
 //*****************************************************************************
 
 //*****************************************************************************
 //
-//! \addtogroup SDCard_SDSC_SDHC_SDXC
+//! \addtogroup SDCard_Enum Enumeration 
 //! @{
 //
 //*****************************************************************************
-
-//*****************************************************************************
-//
-//! \addtogroup SDCard_Config SD Card SPI Driver Configurtion
-//!
-//! \brief Configurtions such as the GPIO Pin used should be set before using
-//! this driver.
-//!    
-//! @{
-//
-//*****************************************************************************
-
-//
-//! if enable CRC
-//
-#define SD_CRC_EN               0
-
-//
-//! if enable multi block read function
-//
-#define SD_READ_MULTI_BLOCK_EN  1
-
-//
-//! if enable multi block write function
-//
-#define SD_WRITE_MULTI_BLOCK_EN 1
-
-//
-//! if enable block erase function
-//
-#define SD_ERASE_BLOCK_EN       1
-
-//
-//! SD Card Power Pin
-//
-#define SD_PIN_POWER            sD0
-
-//
-//! SD Card Power Pin Active State
-//
-#define SD_PIN_POWER_ACTIVE     0
-
-//
-//! SD Card Pin1 - CS(Chip Select (active low))
-//
-#define SD_PIN_CS               sD4
-
-//
-//! SD Card Pin2 - DataIn(Host-to-card Commands and Data)
-//
-#define SD_PIN_DATAIN           sICSP_4_MOSI
-
-//
-//! SD Card Pin5 - CLK(Clock)
-//
-#define SD_PIN_CLK              sICSP_3_SCK
-
-//
-//! SD Card Pin7 - DataOut(Card-to-host Data and Status)
-//
-#define SD_PIN_DATAOUT          sICSP_1_MISO
-
-//
-//! SD SPI max(normal) clock freq
-//
-#define SD_SPI_CLOCK            1000000
-
-//
-//! SD Card Host SPI Port
-//
-#define SD_HOST_SPI_PORT        sICSP_SPI_BASE
-#define SD_HOST_SPI_PIN_CLK     SPI0CLK
-#define SD_HOST_SPI_PIN_MOSI    SPI0MOSI
-#define SD_HOST_SPI_PIN_MISO    SPI0MISO
-
-//*****************************************************************************
-//
-//! @}
-//
-//*****************************************************************************
-
 
 //*****************************************************************************
 //
@@ -286,11 +194,26 @@ typedef struct
 
 //*****************************************************************************
 //
-//! \addtogroup SDCard_API SD Card API
+//! @}
+//
+//*****************************************************************************                               
+
+//*****************************************************************************
+//
+//! \addtogroup SDCard_API API Refrence
 //!    
 //! @{
 //
 //*****************************************************************************
+
+//*****************************************************************************
+//
+//! \addtogroup SDCard_API_Uplevel Uplevel API
+//!    
+//! @{
+//
+//*****************************************************************************
+
 extern unsigned char SDInit(void);
 extern unsigned char SDBlockRead(unsigned char *pucDestBuf, 
                                  unsigned long ulBlockIndex);
@@ -333,17 +256,6 @@ extern const tSDCardDeviceInfo* SDCardInfoGet(void);
 //
 //*****************************************************************************
 
-//*****************************************************************************
-//
-//! @}
-//
-//*****************************************************************************
-
-//*****************************************************************************
-//
-//! @}
-//
-//*****************************************************************************
 
 //*****************************************************************************
 //
